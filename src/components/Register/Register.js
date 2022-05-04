@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -13,6 +13,13 @@ export default function Register({ onRegister }) {
       }
       onRegister( email, password );
     }
+
+    function handeEmailChange(e){
+      setEmail(e.target.value)
+    }
+    function handePasswordChange(e){
+      setPassword(e.target.value)
+    }
     
     return (
       <div className='auth-form-shell'>
@@ -26,14 +33,14 @@ export default function Register({ onRegister }) {
             value={email || ""}
             type="email"
             placeholder="Email"
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={handeEmailChange}
             required/>
           <input
           className='auth-form__inputs'
             value={password || ""}
             placeholder="Пароль"
             type="password"
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={handePasswordChange}
             required/>
           <button className='auth-form__btn buttonEffect'
           type="submit">Зарегистрироваться</button>

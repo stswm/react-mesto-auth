@@ -9,7 +9,7 @@ function ImagePopup({card, onClose}){
     `}>
     <div className="popup__shell">
       <button type="button" className="popup__close buttonEffect" onClick={onClose}></button>
-      <img className="preview__img" src={`${card.link}`} alt={card.name}/>
+      <img className="preview__img" src={card.link} alt={card.name}/>
       <figcaption className="preview__caption">{card.name}</figcaption>
     </div>
   </section>

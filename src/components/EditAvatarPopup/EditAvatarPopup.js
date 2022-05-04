@@ -12,12 +12,11 @@ export default function EditAvatarPopup({ isOpen, onClose, onSubmit, isLoading }
     onSubmit({ avatar: inputRef.current.value });
   }
 
-
   useEffect(() => {
     inputRef.current.value = "";
   }, [isOpen]);
   function changePreviw() {
-    document.querySelector("#test").src =
+    document.querySelector(".preview__avatar").src =
       inputRef.current.value || currentUser.avatar;
   }
 
@@ -45,10 +44,10 @@ export default function EditAvatarPopup({ isOpen, onClose, onSubmit, isLoading }
         <div id="error_avatar" className="popup__input-error-message"></div>
         </div>
         <img
-          id="test"
+          // id="test"
           src={currentUser.avatar}
           alt="Фото профиля"
-          className="profile__avatar"
+          className="profile__avatar preview__avatar"
         />
       </div>
     </PopupWithForm>

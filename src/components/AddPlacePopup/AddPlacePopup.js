@@ -16,6 +16,14 @@ export default function AddPlacePopup({ isOpen, onClose, onSubmit, isLoading }) 
       setLink('')
     }
   },[isOpen])
+
+  function handeNameChange(e){
+    setName(e.target.value)
+  }
+  function handeLinkChange(e){
+    setLink(e.target.value)
+  }
+
   return (
   <PopupWithForm
     isOpen={isOpen}
@@ -34,7 +42,7 @@ export default function AddPlacePopup({ isOpen, onClose, onSubmit, isLoading }) 
       placeholder="Название"
       type="text"
       value={name}
-      onChange={(e) => setName(e.target.value)}
+      onChange={handeNameChange}
       required
     />
     <div
@@ -48,7 +56,7 @@ export default function AddPlacePopup({ isOpen, onClose, onSubmit, isLoading }) 
       placeholder="Ссылка на картинку"
       type="url"
       value={link}
-      onChange={(e) => setLink(e.target.value)}
+      onChange={handeLinkChange}
       required
     />
     <div

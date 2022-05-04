@@ -32,14 +32,19 @@ function App() {
   const [cards, setCards] = useState([]);
   const history = useHistory();
 
+  
   useEffect(() => {
+    handleTokenCheck();
+    if (loggedIn) {
     Promise.all([api.getProfile(), api.getInitialCards()])
       .then(([user, cards]) => {
+        if (loggedIn){
         setCurrentUser(user);
-        setCards(cards);
+        setCards(cards)}
       })
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => console.log(err))
+    }
+  }, [loggedIn]);
 
   useEffect(() => {
     if (loggedIn) {
@@ -144,12 +149,12 @@ function App() {
     auth
       .register(email, password)
       .then((res) => {
-        console.log("res",res);
+        console.log("Register.res",res);
         setIsRegistrate(true);
         history.push("/sign-in");
       })
       .catch((err) => {
-        console.log("err",err);
+        console.log("Register.err",err);
         setIsRegistrate(false);
       })
       .finally(() => {
@@ -167,7 +172,9 @@ function App() {
           handleTokenCheck();
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        handleInfoTooltipOpen()
+        console.log(err)});
   }
 
   function handleTokenCheck() {

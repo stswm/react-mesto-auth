@@ -12,6 +12,13 @@ function handleSubmit(e){
   onLogIn( email, password )
 }
 
+function handeEmailChange(e){
+  setEmail(e.target.value)
+}
+function handePasswordChange(e){
+  setPassword(e.target.value)
+}
+
 return (
   <div className='auth-form-shell'>
     <form
@@ -24,14 +31,14 @@ return (
         value={email || ""}
         type="email"
         placeholder="Email"
-        onChange={(e)=>setEmail(e.target.value)}
+        onChange={handeEmailChange}
         required/>
       <input
       className='auth-form__inputs'
         value={password || ""}
         placeholder="Пароль"
         type="password"
-        onChange={(e)=>setPassword(e.target.value)}
+        onChange={handePasswordChange}
         required/>
       <button className='auth-form__btn buttonEffect'>Войти</button>
     </form>
