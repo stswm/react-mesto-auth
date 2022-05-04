@@ -1,6 +1,6 @@
-function Footer(){
+function Footer({loggedIn}){
   return(
-    <footer className="footer">
+    <footer className={ loggedIn ? "footer" : "hidden"}>
     <p className="footer__author">&copy; 2020 Mesto Russia</p>
   </footer>
   )

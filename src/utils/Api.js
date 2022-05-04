@@ -94,43 +94,6 @@ toggleLikeCards(id, currentLike) {
     .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
     .catch(console.log);
 }
-// Регистрация
-signUp(email, password) {
-  return fetch(`${this._baseUrl}/sign-up`, {
-    method: "POST",
-    headers: this._headers,
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-  })
-  .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-  .catch(console.log);
-}
-// Авторизация
-signIn(email, password) {
-  return fetch(`${this._baseUrl}/sign-in`, {
-    method: "POST",
-    headers: this._headers,
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-  })
-  .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-  .catch(console.log);
-}
-checkToken(jwt) {
-  return fetch(`${this._baseUrl}/users/me`, {
-    method: "GET",
-    headers: {
-      ...this._headers,
-      Authorization: `Bearer ${jwt}`,
-    },
-  })
-  .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-  .catch(console.log);
-}
 }
 
 const api = new Api({

@@ -1,16 +1,12 @@
-# mesto-react
+# mesto-react-auth
 
 
-- Проект Create React App "Mesto".
+- Проект Create React App "Mesto" не стоит на месте, Авторизация подъехала
 
 - За основу взят предыдущий проект 
-> [mesto](https://github.com/stswm/mesto  "ссылка на репо GitHub")
+> [mesto](https://github.com/stswm/mesto-react  "ссылка на репо GitHub")
 
-- Парированы стили и разметка из оригинального проекта
 
-- Разбит на компоненты
-
-- Частично перенесен функционал (в частности открытие модальных окон)
 
 ---
 

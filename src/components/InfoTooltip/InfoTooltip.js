@@ -1,8 +1,8 @@
 import React from "react";
-import pic from "../../img/SuccessPic.svg";
-import pic2 from "../../img/FailPic.svg";
+import ok from "../../img/SuccessPic.svg";
+import failed from "../../img/FailPic.svg";
 
-export default function InfoTooltip({onClose, isOpen}) {
+export default function InfoTooltip({onClose, isOpen, isRegistrate}) {
   return (
     <div className={`popup popup_type_Info ${isOpen ? 'popup_opend' : ''}`}>
       <div className="popup__container">
@@ -12,9 +12,13 @@ export default function InfoTooltip({onClose, isOpen}) {
           onClick={onClose}
         />
         <div className="InfoTooltipShell">
-          <img className="InfoTooltip__Img" src={pic && pic2} />
+          <img className="InfoTooltip__Img" 
+          src={isRegistrate ? ok : failed}
+          alt={isRegistrate ? "success" : "failed" } />
           <p className="InfoTooltip__text">
-            Что-то пошло не так! Попробуйте ещё раз.
+          {isRegistrate
+            ? "Вы успешно зарегистрировались!"
+            : "Что-то пошло не так! Попробуйте ещё раз."}
           </p>
         </div>
       </div>
