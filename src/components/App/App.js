@@ -205,7 +205,7 @@ function App() {
             <Login onLogIn={handleAuthorize} />
           </Route>
           <ProtectedRoute
-            // exact
+            exact
             path="/"
             loggedIn={loggedIn}
             component={Main}
