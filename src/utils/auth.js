@@ -13,7 +13,6 @@ class Auth {
       },
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-      .catch(console.log);
   }
 
   // Регистрация
@@ -26,8 +25,7 @@ class Auth {
         password: password,
       }),
     })
-      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-      .catch(console.log);
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
   }
 
   // Авторизация
@@ -41,7 +39,6 @@ class Auth {
       }),
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-      .catch(console.log);
   }
 }
 

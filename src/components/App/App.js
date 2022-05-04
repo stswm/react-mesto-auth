@@ -46,7 +46,7 @@ function App() {
       history.push("/");
       return;
     }
-    history.push("sign-in");
+    history.push("/sign-in");
   }, [history, loggedIn]);
 
   useEffect(() => {
@@ -143,12 +143,13 @@ function App() {
   function handleRegister(email, password) {
     auth
       .register(email, password)
-      .then(() => {
+      .then((res) => {
+        console.log("res",res);
         setIsRegistrate(true);
         history.push("/sign-in");
       })
       .catch((err) => {
-        console.log(err);
+        console.log("err",err);
         setIsRegistrate(false);
       })
       .finally(() => {
