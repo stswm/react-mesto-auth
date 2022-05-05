@@ -1,6 +1,6 @@
 import logo from "../../img/Logo.svg";
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, Route } from "react-router-dom";
 
 function Header({ loggedIn, emailAuthorized, onLogOut }) {
   const location = useLocation();
@@ -24,16 +24,20 @@ function Header({ loggedIn, emailAuthorized, onLogOut }) {
         </div>
       ) : (
         <>
-          {location.pathname === "/sign-in" && (
-            <Link className="header__link" to={"/sign-up"}>
+          {
+            <Route path="/sign-up">
+              <Link className="header__link" to="/sign-in">
+                Войти
+              </Link>
+            </Route>
+          }
+          {
+            <Route path="/sign-in">
+              <Link className="header__link" to="/sign-up">
               Регистрация
-            </Link>
-          )}
-          {location.pathname === "/sign-up" && (
-            <Link className="header__link" to={"/sign-in"}>
-              Войти
-            </Link>
-          )}
+              </Link>
+            </Route>
+          }
         </>
       )}
     </header>
